@@ -1,9 +1,10 @@
-package testCases;
+package testCases.misc;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.ABTestPage;
 import pageObjects.LandingPage;
+import testCases.BaseTest;
 
 public class ABTestPageTest extends BaseTest {
 

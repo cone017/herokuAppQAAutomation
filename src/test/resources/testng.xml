@@ -1,0 +1,7 @@
+<suite name="HerokuAppFullSuite">
+    <test name="Misc and DOM">
+        <classes>
+            <class name="testCases.misc.ABTestPageTest"/>
+        </classes>
+    </test>
+</suite>
