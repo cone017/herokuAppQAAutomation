@@ -1,7 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd">
 <suite name="HerokuAppFullSuite">
     <test name="Misc and DOM">
         <classes>
-            <class name="testCases.misc.ABTestPageTest"/>
+            <!-- <class name="testCases.misc.ABTestPageTest"/> -->
+            <class name="testCases.misc.AddRemoveElementsPageTest"/>
         </classes>
     </test>
 </suite>
