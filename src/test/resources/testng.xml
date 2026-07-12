@@ -3,7 +3,13 @@
     <test name="Misc and DOM">
         <classes>
             <!-- <class name="testCases.misc.ABTestPageTest"/> -->
-            <class name="testCases.misc.AddRemoveElementsPageTest"/>
+            <!-- <class name="testCases.misc.AddRemoveElementsPageTest"/> -->
+            <class name="testCases.misc.BrokenImagesPageTest"/>
+        </classes>
+    </test>
+    <test name="Auth">
+        <classes>
+            <!-- <class name="testCases.auth.BasicAuthPageTest"/> -->
         </classes>
     </test>
 </suite>
