@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ChallengingDomPage extends AbstractComponent {
 
@@ -46,7 +48,7 @@ public class ChallengingDomPage extends AbstractComponent {
                 button.click();
                 new WebDriverWait(driver, Duration.ofSeconds(5))
                         .until(ExpectedConditions.stalenessOf(button));
-                System.out.println("Success: page reloaded!");
+                //System.out.println("Success: page reloaded!");
                 Thread.sleep(2000);
 
             } catch (StaleElementReferenceException | org.openqa.selenium.TimeoutException e) {
@@ -55,5 +57,62 @@ public class ChallengingDomPage extends AbstractComponent {
             }
         }
         return allThree;
+    }
+
+    public String checkHeading() {
+
+        return heading.getText();
+
+    }
+
+    public int countTableHeadings() {
+
+        return tableHeadings.size();
+
+    }
+
+    public List<String> getTableHeadings() {
+
+        return tableHeadings.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+    }
+
+    public boolean checkEditButtons() {
+
+        boolean allButtons = true;
+        String url1 = "https://the-internet.herokuapp.com/challenging_dom#edit";
+
+        for (int i = 0; i < editButtons.size(); i++) {
+
+            editButtons.get(i).click();
+            //System.out.println("Clicked " + i + "st edit");
+
+            if (!Objects.equals(driver.getCurrentUrl(), url1)) {
+                allButtons = false;
+                break;
+            }
+        }
+
+        return allButtons;
+    }
+
+    public boolean checkDeleteButtons() {
+
+        boolean allButtons = true;
+        String url1 = "https://the-internet.herokuapp.com/challenging_dom#delete";
+
+        for (int i = 0; i < deleteButtons.size(); i++) {
+
+            deleteButtons.get(i).click();
+            //System.out.println("Clicked " + i + "st delete");
+
+            if (!Objects.equals(driver.getCurrentUrl(), url1)) {
+                allButtons = false;
+                break;
+            }
+        }
+
+        return allButtons;
     }
 }

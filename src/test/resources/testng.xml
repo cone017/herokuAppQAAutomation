@@ -4,7 +4,8 @@
         <classes>
             <!-- <class name="testCases.misc.ABTestPageTest"/> -->
             <!-- <class name="testCases.misc.AddRemoveElementsPageTest"/> -->
-            <class name="testCases.misc.BrokenImagesPageTest"/>
+            <!-- <class name="testCases.misc.BrokenImagesPageTest"/> -->
+            <class name="testCases.misc.ChallengingDomTest"/>
         </classes>
     </test>
     <test name="Auth">
