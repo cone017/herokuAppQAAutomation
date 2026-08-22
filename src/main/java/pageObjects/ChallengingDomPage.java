@@ -1,10 +1,7 @@
 package pageObjects;
 
 import base.AbstractComponent;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,6 +32,10 @@ public class ChallengingDomPage extends AbstractComponent {
     @FindBy(xpath = "//a[@href='#delete']")
     List<WebElement> deleteButtons;
 
+    @FindBy(xpath = "//canvas[@id='canvas']")
+    WebElement canvasElement;
+
+    // Left buttons
     public boolean checkLeftButtonsClick() throws InterruptedException {
 
         boolean allThree = true;
@@ -59,16 +60,13 @@ public class ChallengingDomPage extends AbstractComponent {
         return allThree;
     }
 
+    // Table
     public String checkHeading() {
-
         return heading.getText();
-
     }
 
     public int countTableHeadings() {
-
         return tableHeadings.size();
-
     }
 
     public List<String> getTableHeadings() {
@@ -114,5 +112,35 @@ public class ChallengingDomPage extends AbstractComponent {
         }
 
         return allButtons;
+    }
+
+    // Canvas
+    public boolean isCanvasPresent() {
+        return canvasElement.isDisplayed();
+    }
+
+    public String getCanvasWidth() {
+        return canvasElement.getAttribute("width");
+    }
+
+    public String getCanvasHeight() {
+        return canvasElement.getAttribute("height");
+    }
+
+    public boolean isCanvasBlank() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        String canvasData = (String) js.executeScript(
+                "return arguments[0].toDataURL();", canvasElement);
+
+        String blankCanvasData = (String) js.executeScript(
+                "var c = document.createElement('canvas');" +
+                        "c.width = arguments[0].width;" +
+                        "c.height = arguments[0].height;" +
+                        "return c.toDataURL();", canvasElement);
+
+        assert canvasData != null;
+        return canvasData.equals(blankCanvasData);
     }
 }
