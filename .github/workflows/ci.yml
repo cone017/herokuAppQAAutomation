@@ -1,0 +1,31 @@
+name: Run Selenium Test Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # allows manually triggering the workflow from GitHub's UI
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t herokuapp-automation .
+
+      - name: Run test suite in container
+        run: |
+          mkdir -p output
+          docker run --rm -v "$(pwd)/output:/app/output" herokuapp-automation
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: output/test-results.txt
