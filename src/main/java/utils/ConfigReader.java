@@ -31,4 +31,7 @@ public class ConfigReader {
         return Integer.parseInt(properties.getProperty("implicitWait"));
     }
 
+    public static boolean isHeadless() {
+        return Boolean.parseBoolean(properties.getProperty("headless"));
+    }
 }
