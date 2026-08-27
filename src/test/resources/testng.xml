@@ -11,6 +11,7 @@
     <test name="Auth">
         <classes>
             <class name="testCases.auth.BasicAuthPageTest"/>
+            <class name="testCases.auth.DigestAuthPageTest"></class>
         </classes>
     </test>
     <test name="Forms and Inputs">
