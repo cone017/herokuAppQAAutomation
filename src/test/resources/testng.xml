@@ -18,4 +18,9 @@
             <class name="testCases.formsAndInputs.CheckBoxPageTest"/>
         </classes>
     </test>
+    <test name="Mouse Interactions">
+        <classes>
+            <class name="testCases.mouseInteractions.ContextMenuPageTest"/>
+        </classes>
+    </test>
 </suite>

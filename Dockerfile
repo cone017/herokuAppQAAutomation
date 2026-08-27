@@ -11,8 +11,5 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY . .
 
-# Ensure the output directory exists before writing to it
-RUN mkdir -p /app/output
-
-# Run tests, output both to console and to a results file
-CMD ["sh", "-c", "mvn test 2>&1 | tee /app/output/test-results.txt"]
+# Run tests, output goes to console only
+CMD ["mvn", "test"]
