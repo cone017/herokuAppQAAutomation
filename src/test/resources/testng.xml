@@ -17,11 +17,13 @@
     <test name="Forms and Inputs">
         <classes>
             <class name="testCases.formsAndInputs.CheckBoxPageTest"/>
+            <class name="testCases.formsAndInputs.DropdownPageTest"/>
         </classes>
     </test>
     <test name="Mouse Interactions">
         <classes>
             <class name="testCases.mouseInteractions.ContextMenuPageTest"/>
+            <class name="testCases.mouseInteractions.DragAndDropPageTest"/>
         </classes>
     </test>
 </suite>
