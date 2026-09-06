@@ -6,12 +6,13 @@
             <class name="testCases.misc.AddRemoveElementsPageTest"/>
             <class name="testCases.misc.BrokenImagesPageTest"/>
             <class name="testCases.misc.ChallengingDomTest"/>
+            <class name="testCases.misc.DynamicContentPageTest"/>
         </classes>
     </test>
     <test name="Auth">
         <classes>
             <class name="testCases.auth.BasicAuthPageTest"/>
-            <class name="testCases.auth.DigestAuthPageTest"></class>
+            <class name="testCases.auth.DigestAuthPageTest"/>
         </classes>
     </test>
     <test name="Forms and Inputs">
