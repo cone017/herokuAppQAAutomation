@@ -14,7 +14,7 @@ public class BasicAuthPage extends AbstractComponent {
     @FindBy(xpath = "//p")
     private WebElement message;
 
-    public String getResultMessage() {
+    public String getResultMessage() throws InterruptedException {
         waitForVisibility(message);
         return message.getText();
     }

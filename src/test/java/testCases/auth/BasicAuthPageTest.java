@@ -13,7 +13,7 @@ public class BasicAuthPageTest extends BaseTest {
     private String pageName = "Basic Auth";
 
     @Test
-    public void verifySuccessfulBasicAuth() {
+    public void verifySuccessfulBasicAuth() throws InterruptedException {
 
         ((HasAuthentication) driver).register(
                 () -> new UsernameAndPassword("admin", "admin")

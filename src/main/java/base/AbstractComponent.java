@@ -3,7 +3,6 @@ package base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,12 +15,17 @@ public abstract class AbstractComponent {
 
     public AbstractComponent(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         PageFactory.initElements(driver, this);
     }
 
-    protected void waitForVisibility(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
+    protected WebElement waitForVisibility(WebElement element) throws InterruptedException {
+        Thread.sleep(500);
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    protected boolean waitForInvisibility(WebElement element) {
+        return wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
     protected void waitForClickabilty(WebElement element) {

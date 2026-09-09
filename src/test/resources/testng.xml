@@ -7,6 +7,7 @@
             <class name="testCases.misc.BrokenImagesPageTest"/>
             <class name="testCases.misc.ChallengingDomTest"/>
             <class name="testCases.misc.DynamicContentPageTest"/>
+            <class name="testCases.misc.DynamicControlsPageTest"/>
         </classes>
     </test>
     <test name="Auth">

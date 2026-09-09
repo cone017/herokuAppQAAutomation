@@ -14,7 +14,7 @@ public class ABTestPage extends AbstractComponent {
         super(driver);
     }
 
-    public String getHeadingText() {
+    public String getHeadingText() throws InterruptedException {
         waitForVisibility(heading);
         return heading.getText();
     }

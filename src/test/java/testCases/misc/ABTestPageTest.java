@@ -9,7 +9,7 @@ import testCases.BaseTest;
 public class ABTestPageTest extends BaseTest {
 
     @Test
-    public void verifyABTestPageLoads() {
+    public void verifyABTestPageLoads() throws InterruptedException {
 
         LandingPage landingPage = new LandingPage(driver);
         landingPage.goToPage("A/B Testing");
