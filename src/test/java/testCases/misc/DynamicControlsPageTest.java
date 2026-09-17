@@ -39,9 +39,33 @@ public class DynamicControlsPageTest extends BaseTest {
     }
 
     @Test
-    public void verifyLoadingBarDisplay() throws InterruptedException {
+    public void verifyLoadingBarDisplayCheckBox() throws InterruptedException {
         dynamicControlsPage.clickRemoveButton();
-        Assert.assertTrue(dynamicControlsPage.isLoadingElementDisplayed());
+        Assert.assertTrue(dynamicControlsPage.isLoadingElementDisplayedCheckBox());
+    }
+
+    @Test
+    public void verifyMessageAfterRemovingCheckBox() throws InterruptedException {
+        dynamicControlsPage.clickRemoveButton();
+        Assert.assertEquals(dynamicControlsPage.messageAfterRemovingCheckBox(), "It's gone!");
+    }
+
+    @Test
+    public void verifyIsTextFieldDisabledByDefault() {
+        Assert.assertFalse(dynamicControlsPage.isTextBFieldDisabled());
+    }
+
+    @Test
+    public void verifyLoadingBarDisplayTextField() throws InterruptedException {
+        dynamicControlsPage.clickEnableOrDisableTextField();
+        Assert.assertTrue(dynamicControlsPage.isLoadingElementDisplayedTextField());
+    }
+
+    @Test
+    public void verifyBothLoadingBarsDisplayed() throws InterruptedException {
+        dynamicControlsPage.clickEnableOrDisableTextField();
+        dynamicControlsPage.clickRemoveButton();
+        Assert.assertEquals(dynamicControlsPage.isBothLoadingElementsDisplayed(), 2);
     }
 
 }

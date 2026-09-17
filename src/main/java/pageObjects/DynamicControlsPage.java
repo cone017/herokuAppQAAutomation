@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class DynamicControlsPage extends AbstractComponent {
 
     public DynamicControlsPage(WebDriver driver) {
@@ -33,8 +35,8 @@ public class DynamicControlsPage extends AbstractComponent {
     @FindBy(xpath = "//form[@id='input-example']//button")
     WebElement enableOrDisableTextFieldButton;
 
-    @FindBy(xpath = "(//div[@id='loading'])[2]")
-    WebElement loadingElementTextField;
+    @FindBy(xpath = "//div[@id='loading']")
+    List<WebElement> loadingElements;
 
     public void tickCheckBox() {
         checkBox.click();
@@ -52,8 +54,28 @@ public class DynamicControlsPage extends AbstractComponent {
         return waitForInvisibility(checkBox);
     }
 
-    public boolean isLoadingElementDisplayed() throws InterruptedException {
+    public boolean isLoadingElementDisplayedCheckBox() throws InterruptedException {
         return waitForVisibility(loadingElementCheckBox).isDisplayed();
+    }
+
+    public String messageAfterRemovingCheckBox() throws InterruptedException {
+        return waitForVisibility(checkBoxMessage).getText();
+    }
+
+    public boolean isTextBFieldDisabled() {
+        return enableDisableTextField.isEnabled();
+    }
+
+    public void clickEnableOrDisableTextField() {
+        enableOrDisableTextFieldButton.click();
+    }
+
+    public boolean isLoadingElementDisplayedTextField() throws InterruptedException {
+        return waitForVisibility(loadingElementCheckBox).isDisplayed();
+    }
+
+    public int isBothLoadingElementsDisplayed() {
+        return loadingElements.size();
     }
 
 }
