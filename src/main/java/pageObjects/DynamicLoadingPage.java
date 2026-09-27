@@ -18,13 +18,22 @@ public class DynamicLoadingPage extends AbstractComponent {
     WebElement buttonExample1;
 
     @FindBy(xpath = "//div[@id='loading']")
-    WebElement loadingBarExample1;
+    WebElement loadingBarExample;
 
     @FindBy(xpath = "//div[@id='finish']")
     WebElement hiddenElementExample1;
 
     @FindBy(xpath = "//a[@href='/dynamic_loading/2']")
     WebElement example2;
+
+    @FindBy(xpath = "//div[@id='start']//button")
+    WebElement buttonExample2;
+
+    @FindBy(xpath = "//div[@id='finish']")
+    WebElement hiddenElementExample2;
+
+    @FindBy(xpath = "//div[@id='finish']//h4")
+    WebElement finalText;
 
     public void openExample1() {
         onClick(example1);
@@ -37,9 +46,9 @@ public class DynamicLoadingPage extends AbstractComponent {
     public boolean isLoadingBarDisplayed() throws InterruptedException {
 
         onClick(buttonExample1);
-        waitForVisibility(loadingBarExample1);
+        waitForVisibility(loadingBarExample);
 
-        return loadingBarExample1.isDisplayed();
+        return loadingBarExample.isDisplayed();
     }
 
     public boolean isFinalMessageDisplayedExample1() throws InterruptedException {
@@ -49,4 +58,53 @@ public class DynamicLoadingPage extends AbstractComponent {
 
         return hiddenElementExample1.isDisplayed();
     }
+
+    public boolean isLoadingBarDisplayed2() throws InterruptedException {
+
+        onClick(buttonExample2);
+        waitForVisibility(loadingBarExample);
+
+        return loadingBarExample.isDisplayed();
+    }
+
+    public boolean isFinalMessageDisplayedExample2() throws InterruptedException {
+
+        onClick(buttonExample2);
+        waitForVisibility(hiddenElementExample2);
+
+        return hiddenElementExample2.isDisplayed();
+    }
+
+    public boolean doesButtonDisappear1() throws InterruptedException {
+
+        onClick(buttonExample1);
+        waitForVisibility(hiddenElementExample1);
+
+        return buttonExample1.isDisplayed();
+
+    }
+
+    public boolean doesButtonDisappear2() throws InterruptedException {
+
+        onClick(buttonExample2);
+        waitForVisibility(hiddenElementExample2);
+
+        return buttonExample2.isDisplayed();
+
+    }
+
+    public String getFinalTextExample1() throws InterruptedException {
+
+        buttonExample1.click();
+
+        return waitForVisibility(finalText).getText();
+    }
+
+    public String getFinalTextExample2() throws InterruptedException {
+
+        buttonExample2.click();
+
+        return waitForVisibility(finalText).getText();
+    }
+
 }
