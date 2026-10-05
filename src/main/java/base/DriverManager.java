@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import utils.ConfigReader;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DriverManager {
 
@@ -24,11 +26,19 @@ public class DriverManager {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
+
+                    String downloadPath = System.getProperty("user.dir") + "/downloads";
+                    Map<String, Object> prefs = new HashMap<>();
+                    prefs.put("download.default_directory", downloadPath);
+                    prefs.put("download.prompt_for_download", false);
+                    options.setExperimentalOption("prefs", prefs);
+
                     if (ConfigReader.isHeadless()) {
                         options.addArguments("--headless=new");
-                        options.addArguments("--no-sandbox");
-                        options.addArguments("--disable-dev-shm-usage");
                     }
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-dev-shm-usage");
+
                     driver = new ChromeDriver(options);
                     break;
                 default:
