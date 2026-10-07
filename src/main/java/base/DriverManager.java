@@ -33,6 +33,8 @@ public class DriverManager {
                     prefs.put("download.prompt_for_download", false);
                     options.setExperimentalOption("prefs", prefs);
 
+                    options.addArguments("--disable-features=DnsOverHttps");
+
                     if (ConfigReader.isHeadless()) {
                         options.addArguments("--headless=new");
                     }

@@ -17,7 +17,7 @@ public class FileDownloadPageTest extends BaseTest {
 
         FileDownloadPage page = new FileDownloadPage(driver);
 
-        WebElement firstFile = page.getAvailableFileLinks().getFirst();
+        WebElement firstFile = page.getAvailableFileLinks().get(1);
         String fileName = firstFile.getText();
 
         page.downloadFileByName(fileName);
