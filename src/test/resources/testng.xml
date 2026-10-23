@@ -1,19 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd">
 <suite name="HerokuAppFullSuite">
-    <test name="Misc and DOM">
-        <classes>
-            <class name="testCases.misc.ABTestPageTest"/>
-            <class name="testCases.misc.AddRemoveElementsPageTest"/>
-            <class name="testCases.misc.BrokenImagesPageTest"/>
-            <class name="testCases.misc.ChallengingDomTest"/>
-            <class name="testCases.misc.DynamicContentPageTest"/>
-            <class name="testCases.misc.DynamicControlsPageTest"/>
-        </classes>
-    </test>
     <test name="Auth">
         <classes>
             <class name="testCases.auth.BasicAuthPageTest"/>
             <class name="testCases.auth.DigestAuthPageTest"/>
+        </classes>
+    </test>
+    <test name="File Handling">
+        <classes>
+            <class name="testCases.fileHandling.FileDownloadPageTest"/>
         </classes>
     </test>
     <test name="Forms and Inputs">
@@ -22,10 +17,25 @@
             <class name="testCases.formsAndInputs.DropdownPageTest"/>
         </classes>
     </test>
+    <test name="Misc and DOM">
+        <classes>
+            <class name="testCases.misc.ABTestPageTest"/>
+            <class name="testCases.misc.AddRemoveElementsPageTest"/>
+            <class name="testCases.misc.BrokenImagesPageTest"/>
+            <class name="testCases.misc.ChallengingDomTest"/>
+            <class name="testCases.misc.DisappearingElementsPageTest"/>
+            <class name="testCases.misc.DynamicContentPageTest"/>
+            <class name="testCases.misc.DynamicControlsPageTest"/>
+            <class name="testCases.misc.DynamicLoadingPageTest"/>
+            <class name="testCases.misc.EntryAdPageTest"/>
+            <class name="testCases.misc.FloatingMenuPageTest"/>
+        </classes>
+    </test>
     <test name="Mouse Interactions">
         <classes>
             <class name="testCases.mouseInteractions.ContextMenuPageTest"/>
             <class name="testCases.mouseInteractions.DragAndDropPageTest"/>
+<!--            <class name="testCases.mouseInteractions.ExitIntentPageTest"/>-->
         </classes>
     </test>
 </suite>

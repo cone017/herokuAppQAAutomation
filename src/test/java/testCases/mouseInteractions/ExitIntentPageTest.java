@@ -12,7 +12,7 @@ public class ExitIntentPageTest extends BaseTest {
 
     // Run these tests only in headless=false mode
 
-    @Test
+    //@Test
     public void verifyModalPopUp() throws InterruptedException, AWTException {
 
         LandingPage landingPage = new LandingPage(driver);
@@ -25,7 +25,7 @@ public class ExitIntentPageTest extends BaseTest {
 
     }
 
-    @Test
+    //@Test
     public void verifyModalClose() throws InterruptedException, AWTException {
 
         LandingPage landingPage = new LandingPage(driver);
@@ -40,7 +40,7 @@ public class ExitIntentPageTest extends BaseTest {
 
     }
 
-    @Test
+    //@Test
     public void verifyModalHeadingText() throws AWTException, InterruptedException {
 
         LandingPage landingPage = new LandingPage(driver);
@@ -54,7 +54,7 @@ public class ExitIntentPageTest extends BaseTest {
 
     }
 
-    @Test
+    //@Test
     public void verifyModalText() throws AWTException {
 
         LandingPage landingPage = new LandingPage(driver);
