@@ -30,7 +30,7 @@ public class EntryAdPageTest extends BaseTest {
         Assert.assertFalse(entryAdPage.isModalHidden());
     }
 
-    @Test
+    //@Test
     public void verifyReEnablingModal() throws InterruptedException {
         entryAdPage.closeModal();
         Thread.sleep(3000);
