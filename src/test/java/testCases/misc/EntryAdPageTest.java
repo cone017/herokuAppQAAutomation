@@ -33,7 +33,9 @@ public class EntryAdPageTest extends BaseTest {
     @Test
     public void verifyReEnablingModal() throws InterruptedException {
         entryAdPage.closeModal();
+        Thread.sleep(3000);
         entryAdPage.reEnableModal();
+        Thread.sleep(3000);
         Assert.assertTrue(entryAdPage.isModalDisplayed());
     }
 
